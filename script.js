@@ -15,27 +15,15 @@ container.style.transform = `translateX(-${index * 100}vw)`;
 
 
 
-/* NEURAL NETWORK BACKGROUND */
-
 const canvas = document.getElementById("bg");
 const ctx = canvas.getContext("2d");
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-let nodes = [];
-let mouse = {x:0,y:0};
+let nodes=[];
 
-window.addEventListener("mousemove", e => {
-
-mouse.x = e.x;
-mouse.y = e.y;
-
-});
-
-
-
-for(let i=0;i<90;i++){
+for(let i=0;i<80;i++){
 
 nodes.push({
 
@@ -56,11 +44,11 @@ ctx.clearRect(0,0,canvas.width,canvas.height);
 
 nodes.forEach(node=>{
 
-node.x += node.vx;
-node.y += node.vy;
+node.x+=node.vx;
+node.y+=node.vy;
 
-if(node.x<0 || node.x>canvas.width) node.vx *= -1;
-if(node.y<0 || node.y>canvas.height) node.vy *= -1;
+if(node.x<0||node.x>canvas.width)node.vx*=-1;
+if(node.y<0||node.y>canvas.height)node.vy*=-1;
 
 nodes.forEach(other=>{
 
