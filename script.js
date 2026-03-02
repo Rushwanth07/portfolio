@@ -7,7 +7,9 @@ item.addEventListener("click", () => {
 
 const index = item.getAttribute("data-index");
 
+if(window.innerWidth > 768){
 container.style.transform = `translateX(-${index * 100}vw)`;
+}
 
 });
 
@@ -23,20 +25,18 @@ canvas.height = window.innerHeight;
 
 let nodes=[];
 
-for(let i=0;i<80;i++){
+for(let i=0;i<70;i++){
 
 nodes.push({
 
 x:Math.random()*canvas.width,
 y:Math.random()*canvas.height,
-vx:(Math.random()-0.5)*0.4,
-vy:(Math.random()-0.5)*0.4
+vx:(Math.random()-0.5)*0.3,
+vy:(Math.random()-0.5)*0.3
 
 });
 
 }
-
-
 
 function animate(){
 
@@ -54,7 +54,6 @@ nodes.forEach(other=>{
 
 let dx=node.x-other.x;
 let dy=node.y-other.y;
-
 let dist=Math.sqrt(dx*dx+dy*dy);
 
 if(dist<120){
@@ -62,7 +61,7 @@ if(dist<120){
 ctx.beginPath();
 ctx.moveTo(node.x,node.y);
 ctx.lineTo(other.x,other.y);
-ctx.strokeStyle="rgba(0,255,255,0.08)";
+ctx.strokeStyle="rgba(0,255,255,0.07)";
 ctx.stroke();
 
 }
